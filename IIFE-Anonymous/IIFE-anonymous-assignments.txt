@@ -1,0 +1,126 @@
+1) Print Odd Number in an array
+
+//IFFE
+(function(arr){
+    arr.forEach(num=>{
+       if(num%2 !==0){
+           console.log(num);
+       } 
+    });
+})([2,3,4,5,6,7,8,9])
+
+// Anonymous 
+const findOdd = function(arr){
+     arr.forEach(num=>{
+       if(num%2 !==0){
+           console.log(num);
+       } 
+    });
+}
+
+findOdd([2,3,4,5,6,7,8,9]);
+
+
+
+3) Sum of all numbers in an array
+
+// IIFE
+(function(arr){
+    let sum = 0;
+    arr.forEach(num=>{
+       sum += num;
+    });
+    console.log(sum);
+})([1,2,3,4])
+
+//Anonymous
+const Sum = function(arr){
+    let sum = 0;
+    arr.forEach(num=>{
+       sum += num;
+    });
+    console.log(sum);
+}
+Sum(1,2,3,4);
+
+4) Return All prime numbers in an array
+
+//IIFE
+(function(arr){
+    let prime = [];
+    arr.forEach(num => {
+       let isDivisible = false;
+       for(let i=2;i<num;i++){
+           if(num%i === 0){
+               isDivisible = true;
+               break;
+           }
+       }
+       if(!isDivisible && num!=1){
+           prime.push(num);
+       }
+    });
+    return prime;
+
+})([1,2,3,4,5,6,7,8,9,10,11])
+
+//Anonymous
+const getPrimeNum = function(arr){
+    let prime = [];
+    arr.forEach(num => {
+       let isDivisible = false;
+       for(let i=2;i<num;i++){
+           if(num%i === 0){
+               isDivisible = true;
+               break;
+           }
+       }
+       if(!isDivisible && num!=1){
+           prime.push(num);
+       }
+    });
+    return prime;
+}
+getPrimeNum([1,2,3,4,5,6,7,8,9,10,11])
+
+5) Return all palindrome in an array
+
+//IIFE
+(function(arr){
+    const palindrome = [];
+    arr.forEach(word => {
+       if(word === Array.from(word).reverse().join('')){
+           palindrome.push(word)
+       }
+    });
+    return palindrome;
+})(['bab','acc','test','mom']);
+
+//Anonymous
+const palindrome = function(arr){
+    const palindrome = [];
+    arr.forEach(word => {
+       if(word === Array.from(word).reverse().join('')){
+           palindrome.push(word);
+       }
+    });
+    return palindrome;
+};
+
+palindrome(['bab','acc','test','mom']);
+
+
+
+6) Remove duplicates from array
+
+//IIFE
+(function(arr){
+   return [...new Set(arr)];
+})([1,1,2,2,3,4,5,5]);
+
+//Anonymous
+
+const removeDuplicates = (arr)=>{
+   return [...new Set(arr)];
+}
+removeDuplicates([1,1,2,2,3,4,5,5]);
