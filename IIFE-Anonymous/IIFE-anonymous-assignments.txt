@@ -128,9 +128,26 @@ const palindrome = function(arr){
 
 palindrome(['bab','acc','test','mom']);
 
+6) Return median of two sorted arrays of same size 
+
+//IIFE
+(function(arr1,arr2){
+    const medArr = [...arr1,...arr2].sort();
+
+    const mid = parseInt(medArr.length/2)-1 ;
+
+    return (medArr[mid]+medArr[mid+1])/2;
+})([1,2,3,4],[5,6,7,8])
+
+//Anonymous
+const median = function(){
+    const medArr = [...arr1,...arr2].sort((a,b)=>a-b);
+    const mid = parseInt(medArr.length/2)-1 ;
+    return (medArr[mid]+medArr[mid+1])/2;
+};
 
 
-6) Remove duplicates from array
+7) Remove duplicates from array
 
 //IIFE
 (function(arr){
@@ -145,7 +162,7 @@ const removeDuplicates = (arr)=>{
 removeDuplicates([1,1,2,2,3,4,5,5]);
 
 
-7) Rotate an array by k times and return the rotated array.
+8) Rotate an array by k times and return the rotated array.
 
 //IIFE
 (function(arr,len){
