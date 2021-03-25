@@ -143,3 +143,18 @@ const removeDuplicates = (arr)=>{
    return [...new Set(arr)];
 }
 removeDuplicates([1,1,2,2,3,4,5,5]);
+
+
+7) Rotate an array by k times and return the rotated array.
+
+//IIFE
+(function(arr,len){
+    const rotate = len % arr.length;
+    return [...arr.slice(rotate),...arr.slice(0,rotate)];
+})([1,2,3,4,5,6],3)
+
+//Anonymous
+const rotateArr = function(arr,len){
+    const rotate = len % arr.length;
+    return [...arr.slice(rotate),...arr.slice(0,rotate)];
+}
