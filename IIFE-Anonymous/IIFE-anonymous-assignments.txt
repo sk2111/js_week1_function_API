@@ -20,6 +20,25 @@ const findOdd = function(arr){
 
 findOdd([2,3,4,5,6,7,8,9]);
 
+2) Convert all the strings to title caps in a string array 
+
+//IIFE
+(function(strArr){
+
+   return strArr.map(str=>{
+       return str[0].toUpperCase()+str.slice(1);
+   });
+
+})(['test','hello','hai'])
+
+//Anonymous
+const titleCaps = function(strArr){
+    return strArr.map(str=>{
+       return str[0].toUpperCase()+str.slice(1);
+    });
+}
+titleCaps(['test','hello','hai'])
+
 
 
 3) Sum of all numbers in an array
