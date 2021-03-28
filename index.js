@@ -18,15 +18,15 @@ function httpRequest(method, url, callback) {
 }
 
 
-httpRequest(HTTP_METHOD, REST_COUNTRIES_API, function (countries) {
+httpRequest(HTTP_METHOD, REST_COUNTRIES_API, (countries) => {
     if (Array.isArray(countries)) {
         countries.forEach((country) => {
             const countryName = country.name;
-            const latitude = country.latlng[0];
-            const longitude = country.latlng[1];
+            const [latitude, longitude] = country.latlng;
+
             if (latitude && longitude) {
                 const latLongQuery = `lat=${latitude}&lon=${longitude}&appid=${WEATHER_API_KEY}&units=metric`;
-                httpRequest(HTTP_METHOD, REST_WEATHER_API + latLongQuery, function (weatherInfo) {
+                httpRequest(HTTP_METHOD, REST_WEATHER_API + latLongQuery, (weatherInfo) => {
                     if (weatherInfo && weatherInfo.main) {
                         console.log(countryName, ":", weatherInfo.main.temp);
                     }
