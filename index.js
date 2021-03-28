@@ -38,7 +38,7 @@ httpRequest(HTTP_METHOD, REST_COUNTRIES_API, (countries) => {
                 });
             }
             else {
-                console.log("Not a valid Coordinate");
+                console.log("Not a valid Coordinate for",countryName);
             }
         });
     }
