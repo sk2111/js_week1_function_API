@@ -6,11 +6,16 @@ const HTTP_METHOD = 'GET';
 //print country lat,long,temperature (temp in openweather)
 function httpRequest(method, url, callback) {
     if (method && url && typeof (callback) === 'function') {
-        const request = new XMLHttpRequest();
-        request.open(method, url, true);
-        request.send();
-        request.onload = function () {
-            callback(JSON.parse(this.response));
+        try {
+            const request = new XMLHttpRequest();
+            request.open(method, url, true);
+            request.send();
+            request.onload = function () {
+                callback(JSON.parse(this.response));
+            }
+        }
+        catch (e) {
+            console.log("Request failed", e);
         }
     } else {
         console.log("Invalid paramters passed for request");
@@ -31,6 +36,9 @@ httpRequest(HTTP_METHOD, REST_COUNTRIES_API, (countries) => {
                         console.log(countryName, ":", weatherInfo.main.temp);
                     }
                 });
+            }
+            else {
+                console.log("Not a valid Coordinate");
             }
         });
     }
